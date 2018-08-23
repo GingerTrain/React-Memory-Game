@@ -9,6 +9,11 @@
   to { transform: rotate(360deg); }
 } */
 
+.Game {
+  display: flex;
+  flex-direction: row;
+}
+
 .board-row:after {
   clear: both;
   content: "";
@@ -35,22 +40,17 @@
   overflow: hidden;
 }
 
-.flip {
-  transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg);
-
-  transition: transform 1s;
-  -webkit-transition: transform 1s;
-}
-
 .Card:active {
   transform: scale(0.97);
   transition: transform .2s;
 }
 
-.Game {
-  display: flex;
-  flex-direction: row;
+.front-card {
+  /* transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg); */
+
+  /* transition: transform 1s;
+  -webkit-transition: transform 1s; */
 }
 
 .front-card,
@@ -62,16 +62,14 @@
   /* z-index: 0; */
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  /* -webkit-animation: flip 3s infinite;
-  animation: flip 3s infinite; */
 }
 
-.front-card {
-  /* transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg); */
+.flip {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
 
-  /* transition: transform 1s;
-  -webkit-transition: transform 1s; */
+  transition: transform 1s;
+  -webkit-transition: transform 1s;
 }
 
 /* @-webkit-keyframes flip {
