@@ -1,7 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app), and inspired by Marina Ferria's [Vanilla JavaScript Memory Card Game](https://marina-ferreira.github.io/projects/js/memory-game/).
 
-Below you will find some information on how to perform common tasks.<br>
-You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+After finishing the React Tic-Tac-Toe tutorial I wanted to practice what I learned, and what better way than to make another game! This project was also to help me practice Git and Markdown.
 
 ## Table of Contents
 
