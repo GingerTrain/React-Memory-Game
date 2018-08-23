@@ -1,79 +1,28 @@
-/* Example animation */
-/* .App-logo {
+.App {
+  text-align: center;
+}
+
+.App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-} */
-
-.board-row:after {
-  clear: both;
-  content: "";
-  display: table;
 }
-
-.Card {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 12px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 68px;
-  width: 68px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  position: relative;
-  transition: all .5s;
-  transform-style: preserve-3d;
-  transform: scale(1);
-  overflow: hidden;
-}
-
-.flip {
-  transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg);
-}
-
-.Card:active {
-  transform: scale(0.97);
-  transition: transform .2s;
-}
-
-.Game {
-  display: flex;
-  flex-direction: row;
-}
-
-.front-card,
-.back-card {
-  width: 100%;
-  height: 100%;
-  margin-left: -33.5px;
-  position: absolute;
-  /* z-index: 0; */
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  /* -webkit-animation: flip 3s infinite;
-  animation: flip 3s infinite; */
-}
-
-.front-card {
-  /* transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg); */
-}
-
-/* @-webkit-keyframes flip {
-  from {-webkit-transform: rotateY(0deg);}
-  to {-webkit-transform: rotateY(180deg);}
-}
-
-@keyframes flip {
-  from {transform: rotateY(0deg);}
-  to {transform: rotateY(180deg);}
-} */
