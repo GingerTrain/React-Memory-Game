@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import angular from './img/angular.svg';
@@ -9,22 +8,6 @@ import javascript from './img/javascript.svg';
 import node from './img/node.svg'
 import react from './img/react.svg';
 import vue from './img/vue.svg';
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <h1 className="App-title">Welcome to React</h1>
-//         </header>
-//         <p className="App-intro">
-//           To get started, edit <code>src/App.js</code> and save to reload.
-//         </p>
-//       </div>
-//     );
-//   }
-// }
 
 function Card(props) {
   return (
@@ -90,6 +73,7 @@ class Game extends Component {
   }
 
   handleClick(i) {
+    // Duplicate state data
     var cards = this.state.cards.slice();
     var cardsClass = this.state.cardsClass.slice();
     var hasFlippedCard = this.state.hasFlippedCard;
@@ -101,19 +85,15 @@ class Game extends Component {
       return;
     }
 
-    if(calculateWinner(cardsClass)) {
-      return;
-    }
-
     // If a card is already flipped
     if(hasFlippedCard) {
       secondCard.img = cards[i];
       secondCard.pos = i;
 
       if(isMatch(firstCard, secondCard)) {
-        cards[i] = cards[i];
+        cards[i] = secondCard.img;
         cardsClass[i] = 'flip';
-      } else {
+      } else { // Flip second card, delay, unflip both cards
         cardsClass = unflipCards(firstCard, secondCard, cardsClass);
       }
     } else {
@@ -122,6 +102,10 @@ class Game extends Component {
 
       cards[i] = cards[i];
       cardsClass[i] = 'flip';
+    }
+
+    if(calculateWinner(cardsClass)) {
+      return;
     }
 
     // Update state accordingly
@@ -144,8 +128,19 @@ class Game extends Component {
             onClick={(i) => this.handleClick(i)}
           />
         </div>
+        <button className='ResetBtn' onClick={() => this.resetGame()}>Reset</button>
       </div>
     );
+  }
+
+  resetGame() {
+    this.setState({
+      cards: shuffleCards(),
+      cardsClass: Array(12).fill(''),
+      hasFlippedCard: false,
+      firstCard: {img: '', pos: '',},
+      secondCard: {img: '', pos: '',},
+    });
   }
 }
 
@@ -174,7 +169,7 @@ function shuffleCards() {
 
 // Checkes if the two flipped cards match
 function isMatch(firstCard, secondCard) {
-  return (firstCard.img == secondCard.img ? true : false);
+  return (firstCard.img === secondCard.img ? true : false);
 }
 
 // Unflips the two flipped cards

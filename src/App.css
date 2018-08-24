@@ -14,6 +14,10 @@
   flex-direction: row;
 }
 
+.ResetBtn {
+  
+}
+
 .board-row:after {
   clear: both;
   content: "";
