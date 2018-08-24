@@ -5,7 +5,7 @@ import angular from './img/angular.svg';
 import css from './img/css.svg';
 import html from './img/html.svg';
 import javascript from './img/javascript.svg';
-import node from './img/node.svg'
+import node from './img/node.svg';
 import react from './img/react.svg';
 import vue from './img/vue.svg';
 
@@ -33,28 +33,19 @@ class Board extends Component {
 
   render() {
     return (
-      <div>
-        {/* 4 x 3 board */}
-        <div className='Board-row'>
-          {this.renderCard(0)}
-          {this.renderCard(1)}
-          {this.renderCard(2)}
-        </div>
-        <div className='Board-row'>
-          {this.renderCard(3)}
-          {this.renderCard(4)}
-          {this.renderCard(5)}
-        </div>
-        <div className='Board-row'>
-          {this.renderCard(6)}
-          {this.renderCard(7)}
-          {this.renderCard(8)}
-        </div>
-        <div className='Board-row'>
-          {this.renderCard(9)}
-          {this.renderCard(10)}
-          {this.renderCard(11)}
-        </div>
+      <div className="Board">
+        {this.renderCard(0)}
+        {this.renderCard(1)}
+        {this.renderCard(2)}
+        {this.renderCard(3)}
+        {this.renderCard(4)}
+        {this.renderCard(5)}
+        {this.renderCard(6)}
+        {this.renderCard(7)}
+        {this.renderCard(8)}
+        {this.renderCard(9)}
+        {this.renderCard(10)}
+        {this.renderCard(11)}
       </div>
     );
   }
@@ -93,7 +84,7 @@ class Game extends Component {
       if(isMatch(firstCard, secondCard)) {
         cards[i] = secondCard.img;
         cardsClass[i] = 'flip';
-      } else { // Flip second card, delay, unflip both cards
+      } else { // TODO: Make second card flip, wait, then unflip; instead of just not flipping at all
         cardsClass = unflipCards(firstCard, secondCard, cardsClass);
       }
     } else {
@@ -206,3 +197,25 @@ export default Game;
           {this.renderCard(9)}
           {this.renderCard(10)}
           {this.renderCard(11)} */}
+
+          {/* 4 x 3 board */}
+        {/* <div className='Board-row'>
+          {this.renderCard(0)}
+          {this.renderCard(1)}
+          {this.renderCard(2)}
+        </div>
+        <div className='Board-row'>
+          {this.renderCard(3)}
+          {this.renderCard(4)}
+          {this.renderCard(5)}
+        </div>
+        <div className='Board-row'>
+          {this.renderCard(6)}
+          {this.renderCard(7)}
+          {this.renderCard(8)}
+        </div>
+        <div className='Board-row'>
+          {this.renderCard(9)}
+          {this.renderCard(10)}
+          {this.renderCard(11)}
+        </div> */}

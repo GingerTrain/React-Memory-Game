@@ -1,42 +1,41 @@
-/* Example animation */
-/* .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-} */
 
 .Game {
+  height: 100vh;
   display: flex;
-  flex-direction: row;
 }
 
-.ResetBtn {
-  
+/* Might remove... Comment selector for smaller game */
+.Game-Board {
+  height: 100vh;
+  width: 100vw;
 }
 
-.board-row:after {
-  clear: both;
-  content: "";
-  display: table;
+.Board {
+  width: 640px;
+  height: 640px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  perspective: 1000px;
 }
 
 .Card {
   background: #fff;
   border: 1px solid #999;
-  float: left;
   font-size: 12px;
   font-weight: bold;
   line-height: 34px;
-  height: 68px;
-  width: 68px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
   text-align: center;
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
   position: relative;
   transition: all .5s;
   transform-style: preserve-3d;
@@ -50,6 +49,7 @@
 }
 
 .front-card {
+  /* z-index: 1; */
   /* transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg); */
 
@@ -61,11 +61,16 @@
 .back-card {
   width: 100%;
   height: 100%;
-  margin-left: -33.5px;
   position: absolute;
-  /* z-index: 0; */
+  left: 0;
+  right: 0;
+  margin: auto;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+}
+
+.ResetBtn {
+
 }
 
 .flip {
@@ -75,13 +80,3 @@
   transition: transform 1s;
   -webkit-transition: transform 1s;
 }
-
-/* @-webkit-keyframes flip {
-  from {-webkit-transform: rotateY(0deg);}
-  to {-webkit-transform: rotateY(180deg);}
-}
-
-@keyframes flip {
-  from {transform: rotateY(0deg);}
-  to {transform: rotateY(180deg);}
-} */
