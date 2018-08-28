@@ -17,7 +17,9 @@ After finishing the official React Tic-Tac-Toe tutorial I wanted to practice wha
 ## How it Works
 
 Download the .zip here or `git clone`
+
 Run `npm start` in the repo to start the server
+
 Enjoy the game :)
 
 TODO: Explain how to get repo and run, explain game simply, include pictures and/or gifs
@@ -34,5 +36,5 @@ TODO: Explain how to get repo and run, explain game simply, include pictures and
 ### Special Thanks
 
 Shoutout to my brother Randy for:
-- Simplifying my algorithm to dynamically get the alt text
+- Helping simplify my algorithm to dynamically get the alt text
 - Listening to me complain about CSS a lot
