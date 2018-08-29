@@ -165,8 +165,8 @@ function isMatch(firstCard, secondCard) {
 
 // Unflips the two flipped cards
 function unflipCards(firstCard, secondCard, cardsClass) {
-  cardsClass[firstCard.pos] = '';
-  cardsClass[secondCard.pos] = '';
+  cardsClass[firstCard.pos] = 'unflip';
+  cardsClass[secondCard.pos] = 'unflip';
 
   return cardsClass;
 }
