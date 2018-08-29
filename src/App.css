@@ -49,13 +49,10 @@
   transition: transform .2s;
 }
 
+/* Transform is commented out for debugging purposes (so I can actually see the cards) */
 .front-card {
-  /* z-index: 1; */
   /* transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg); */
-
-  /* transition: transform 1s;
-  -webkit-transition: transform 1s; */
 }
 
 .front-card,
