@@ -10,9 +10,18 @@ import react from './img/react.svg';
 import vue from './img/vue.svg';
 
 function Card(props) {
+  // Temp fix for front-card img flip issue TODO: Refactor
+  let frontCard = '';
+  if(props.cardsClass == 'flip') {
+    frontCard = 'unflip';
+  }
+  else if(props.cardsClass == 'unflip') {
+    frontCard = 'flip';
+  }
+
   return (
     <div className='Card' onClick={props.onClick}>
-      <img className={'front-card ' + props.cardsClass} src={props.img} alt={props.alt} />
+      <img className={'front-card ' + frontCard} src={props.img} alt={props.alt} />
       <img className={'back-card ' + props.cardsClass} src={react} alt={'react'} />
     </div>
   );
@@ -54,6 +63,7 @@ class Board extends Component {
 class Game extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       cards: shuffleCards(),
       cardsClass: Array(12).fill(''),
@@ -95,7 +105,7 @@ class Game extends Component {
       cardsClass[i] = 'flip';
     }
 
-    if(calculateWinner(cardsClass)) {
+    if(calculateWinner(cardsClass)) { // TODO: Determine when user wins
       return;
     }
 
