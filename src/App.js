@@ -70,16 +70,17 @@ class Game extends Component {
       hasFlippedCard: false,
       firstCard: {img: '', pos: '',},
       secondCard: {img: '', pos: '',},
+      won: false,
     };
   }
 
   handleClick(i) {
-    // Duplicate state data
-    var cards = this.state.cards.slice();
-    var cardsClass = this.state.cardsClass.slice();
-    var hasFlippedCard = this.state.hasFlippedCard;
-    var firstCard = this.state.firstCard;
-    var secondCard = this.state.secondCard;
+    // Duplicate state data TODO: Refactor?
+    let cards = this.state.cards.slice();
+    let cardsClass = this.state.cardsClass.slice();
+    let hasFlippedCard = this.state.hasFlippedCard;
+    let firstCard = this.state.firstCard;
+    let secondCard = this.state.secondCard;
 
     // Prevent user from clicking an already flipped card
     if(cardsClass[i] === 'flip') {
@@ -136,13 +137,8 @@ class Game extends Component {
         hasFlippedCard: !this.state.hasFlippedCard,
         firstCard: firstCard,
         secondCard: secondCard,
+        won: true,
       });
-
-      return (  // TODO: Display some congratulations when you win
-        <div style="color: green">
-          Congratulations, you won!
-        </div>
-      );
     }
 
     // Update state accordingly
@@ -164,6 +160,9 @@ class Game extends Component {
             cardsClass={this.state.cardsClass}
             onClick={(i) => this.handleClick(i)}
           />
+          <div>
+            {this.state.won && <h1>Congratulations, you won!</h1>}
+          </div>
         </div>
         <button className='ResetBtn' onClick={() => this.resetGame()}>Reset</button>
       </div>
@@ -177,6 +176,7 @@ class Game extends Component {
       hasFlippedCard: false,
       firstCard: {img: '', pos: '',},
       secondCard: {img: '', pos: '',},
+      won: false,
     });
   }
 }
