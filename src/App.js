@@ -12,10 +12,10 @@ import vue from './img/vue.svg';
 function Card(props) {
   // Temp fix for front-card img flip issue TODO: Refactor
   let frontCard = '';
-  if(props.cardsClass == 'flip') {
+  if(props.cardsClass === 'flip') {
     frontCard = 'unflip';
   }
-  else if(props.cardsClass == 'unflip') {
+  else if(props.cardsClass === 'unflip') {
     frontCard = 'flip';
   }
 
@@ -94,8 +94,31 @@ class Game extends Component {
       if(isMatch(firstCard, secondCard)) {
         cards[i] = secondCard.img;
         cardsClass[i] = 'flip';
-      } else { // TODO: Make second card flip, wait, then unflip; instead of just not flipping at all
-        cardsClass = unflipCards(firstCard, secondCard, cardsClass);
+      } else { // TODO: Fix bugs with flipping cards (delay)
+        cards[i] = secondCard.img;
+        cardsClass[i] = 'flip';
+
+        this.setState({
+          cards: cards,
+          cardsClass: cardsClass,
+          hasFlippedCard: !this.state.hasFlippedCard,
+          firstCard: firstCard,
+          secondCard: secondCard,
+        });
+
+        setTimeout(() => {
+          cardsClass = unflipCards(firstCard, secondCard, cardsClass);
+
+          this.setState({
+            cards: cards,
+            cardsClass: cardsClass,
+            hasFlippedCard: !this.state.hasFlippedCard,
+            firstCard: firstCard,
+            secondCard: secondCard,
+          });
+
+          return;
+        }, 1000);
       }
     } else {
       firstCard.img = cards[i];
@@ -105,8 +128,21 @@ class Game extends Component {
       cardsClass[i] = 'flip';
     }
 
-    if(calculateWinner(cardsClass)) { // TODO: Determine when user wins
-      return;
+    if(calculateWinner(cardsClass)) {
+      console.log("Game over.");
+      this.setState({
+        cards: cards,
+        cardsClass: cardsClass,
+        hasFlippedCard: !this.state.hasFlippedCard,
+        firstCard: firstCard,
+        secondCard: secondCard,
+      });
+
+      return (  // TODO: Display some congratulations when you win
+        <div style="color: green">
+          Congratulations, you won!
+        </div>
+      );
     }
 
     // Update state accordingly
@@ -183,8 +219,7 @@ function unflipCards(firstCard, secondCard, cardsClass) {
 
 // Checks if user won
 function calculateWinner(cardsClass) {
-  console.log(cardsClass.every((val, arr) => val === arr[0]));
-  return (cardsClass.every((val, arr) => val === arr[0]));
+  return (cardsClass.every((val) => val === 'flip'));
 }
 
 export default Game;
