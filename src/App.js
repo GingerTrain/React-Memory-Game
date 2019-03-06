@@ -102,7 +102,7 @@ class Game extends Component {
         this.setState({
           cards: cards,
           cardsClass: cardsClass,
-          hasFlippedCard: !this.state.hasFlippedCard,
+          hasFlippedCard: this.state.hasFlippedCard,
           firstCard: firstCard,
           secondCard: secondCard,
         });
@@ -117,9 +117,8 @@ class Game extends Component {
             firstCard: firstCard,
             secondCard: secondCard,
           });
-
-          return;
         }, 1000);
+        return;
       }
     } else {
       firstCard.img = cards[i];
