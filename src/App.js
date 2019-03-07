@@ -129,15 +129,16 @@ class Game extends Component {
     }
 
     if(calculateWinner(cardsClass)) {
-      console.log("Game over.");
-      this.setState({
-        cards: cards,
-        cardsClass: cardsClass,
-        hasFlippedCard: !this.state.hasFlippedCard,
-        firstCard: firstCard,
-        secondCard: secondCard,
-        won: true,
-      });
+      setTimeout(() => {
+        this.setState({
+          cards: cards,
+          cardsClass: cardsClass,
+          hasFlippedCard: !this.state.hasFlippedCard,
+          firstCard: firstCard,
+          secondCard: secondCard,
+          won: true,
+        });
+      }, 500);
     }
 
     // Update state accordingly
