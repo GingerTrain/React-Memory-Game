@@ -7,6 +7,7 @@ A simple React memory card game to help me practice React, Git, Markdown, and CS
 ## Table of Contents
 - [Lore](#lore)
 - [How it Works](#how-it-works)
+- [Components](#components)
 - [TODO](#todo)
 - [Special Thanks](#special-thanks)
 
@@ -18,15 +19,33 @@ After finishing the official React Tic-Tac-Toe tutorial I wanted to practice wha
 
 Download the .zip here or `git clone`
 
-Run `npm start` in the repo to start the server
+Run `npm install` then `npm start` to start the server
 
 Enjoy the game :)
 
-TODO: Explain how to get repo and run, explain game simply, include pictures and/or gifs
+## Components
+### Card
+Takes the props data from the Board component, checks if the cards are flipped or unflipped properly, and returns two images representing the front and back of the card.
+
+### Board
+Takes the state data from the Game component, returns the respective card number when clicked, and renders a grid of Cards.
+
+### Game (Main)
+Contains all the game logic, controls the flipping animation by modifying the CSS class of the elements, and controls the following state:
+
+- cards - An array of shuffled images
+- cardsClass - An array tracking which cards are flipped or unflipped, controls animation
+- hasFlippedCard - A boolean tracking whether the user has already flipped a card
+- firstCard - An object containing the image and position of the first card the user flipped
+- secondCard - An object containing the image and position of the second card the user flipped
+- won - A boolean tracking whether the user has won the game or not
+
+Renders the Board, a hidden victory message, and a reset button. When a card is clicked it checks whether the card is already flipped, whether the user has already flipped a card, and whether the cards match. When all the cards are flipped the victory message is visible. When the reset button is clicked it resets the state, hides the victory message, and renders another Board.
 
 ## TODO
 
-- Make it not look terrible lol
+- Explain game simply, include pictures and/or gifs
+- Improve visuals and website
 - Responsive / mobile-friendly / resizeability
 - Maximum browser compatibility and support
 - Improve animation
