@@ -15,10 +15,17 @@ h1 {
   background-color: rgb(36, 41, 46);
 }
 
-/* Might remove... Comment selector for smaller game */
+/* Comment following selector for smaller game */
 .Game-Board {
   height: 100vh;
   width: 100vw;
+}
+
+.Game-Menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .Board {
@@ -37,6 +44,7 @@ h1 {
   border: 1px solid #999;
   font-size: 12px;
   font-weight: bold;
+  cursor: pointer;
   line-height: 34px;
   text-align: center;
   width: calc(25% - 10px);
@@ -48,7 +56,6 @@ h1 {
   transform: scale(1);
   overflow: hidden;
 }
-
 .Card:active {
   transform: scale(0.97);
   transition: transform .2s;
@@ -59,7 +66,6 @@ h1 {
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
 }
-
 .front-card,
 .back-card {
   width: 100%;
@@ -72,9 +78,29 @@ h1 {
   backface-visibility: hidden;
 }
 
-/* TODO: Style reset button */
 .ResetBtn {
-
+  display: flex;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #008CBA;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #666;
+}
+.ResetBtn:hover {
+  background-color: rgba(0, 139, 186, 0.747);
+}
+.ResetBtn:active {
+  background-color: rgba(0, 139, 186, 0.747);
+  box-shadow: 0 5px #444;
+  transform: translateY(4px);
 }
 
 .flip {

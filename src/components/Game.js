@@ -76,7 +76,6 @@ class Game extends Component {
             firstCard.img = cards[i];
             firstCard.pos = i;
 
-            cards[i] = cards[i];
             cardsClass[i] = 'flip';
         }
 
@@ -111,11 +110,11 @@ class Game extends Component {
                         cardsClass = {this.state.cardsClass}
                         onClick = {(i) => this.handleClick(i)}
                     />
-                <div >
-                    {this.state.won && <h1> Congratulations, you won! </h1>}
-                </div>
+                    <div className = 'Game-Menu'>
+                        {this.state.won && <h1> Congratulations, you won! </h1>}
+                        <button className = 'ResetBtn' onClick = {() => this.resetGame()} > Reset </button>
                     </div>
-                    <button className = 'ResetBtn' onClick = {() => this.resetGame()} > Reset </button>
+                </div>
             </div>
         );
     }
